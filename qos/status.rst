@@ -19,18 +19,19 @@ MClock/DMClock
 
 mclock and dmclock [1] are algorithms for allocating IO resources among a set
 of clients with different io allocations/priorities.  [2] is the current ceph
-implementation of dmclock.  [3] is a pending PR adding the client level hooks
-and messages for propagating the dmclock parameters.
+implementation of dmclock.  [3] is an old PR adding the client level hooks
+and messages for propagating the dmclock parameters. [4] is a cleaned pending
+PR for a cleaned up reimplementation of the server side.
 
 - [1] https://www.usenix.org/legacy/events/osdi10/tech/full_papers/Gulati.pdf
 - [2] https://github.com/ceph/dmclock
 - [3] https://github.com/ceph/ceph/pull/20235
+- [4] https://github.com/ceph/ceph/pull/30650
 
 In Progress:
 
-- Add support for dmclock parameters to cbt and measure whether [3] above
-  suffices. [3] has been rebased and completed to a point where it can be
-  evaluated
+- [4] above replaces the existing OpQueue based mclock implementations with a
+  simpler one.
 
 Next:
 
@@ -56,7 +57,7 @@ vary the throttle values over the course of a run, and a set of scripts in cbt
 [5] for plotting the throttle/latency/throughput curves of the emitted
 tracepoints.
 
-In Progress:
+Complete:
 
 - [4] https://github.com/ceph/ceph/pull/29674
 
